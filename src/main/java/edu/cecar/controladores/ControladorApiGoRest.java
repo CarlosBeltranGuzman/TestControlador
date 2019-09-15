@@ -30,8 +30,8 @@ public class ControladorApiGoRest {
             //System.out.println(jsonMeta.get("success"));
             
             JSONArray jSONArrayResult = jsonUser.getJSONArray("result");
-            JSONArray jSONArrayResult2 = jsonPosts.getJSONArray("result");
-            JSONArray jSONArrayResult3 = jsonComments.getJSONArray("result");
+            //JSONArray jSONArrayResult2 = jsonPosts.getJSONArray("result");
+            //JSONArray jSONArrayResult3 = jsonComments.getJSONArray("result");
                     
             
             for (int i = 0; i < jSONArrayResult.length(); i++) {
