@@ -1,8 +1,12 @@
 package edu.cecar.modelo;
-public class Users {
-    private String first_name, last_name, gender, dob, email, phone, website, address, status;
 
-    public Users(String first_name, String last_name, String gender, String dob, String email, String phone, String website, String address, String status) {
+import javax.swing.ImageIcon;
+
+public class Users {
+    private String first_name, last_name, gender, dob, email, phone, website, address, status, post, comments;
+    private ImageIcon photo;
+
+    public Users(String first_name, String last_name, String gender, String dob, String email, String phone, String website, String address, String status, String post, String comments, ImageIcon photo) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
@@ -12,19 +16,43 @@ public class Users {
         this.website = website;
         this.address = address;
         this.status = status;
+        this.post = post;
+        this.comments = comments;
+        this.photo = photo;
     }
 
-    public Users() {
-        this.first_name = "";
-        this.last_name = "";
-        this.gender = "";
-        this.dob = "";
-        this.email = "";
-        this.phone = "";
-        this.website = "";
-        this.address = "";
-        this.status = "";
+    public ImageIcon getPhoto() {
+        return photo;
     }
+
+    public void setPhoto(ImageIcon photo) {
+        this.photo = photo;
+    }
+
+    
+
+    public Users() {
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    
+
+    
 
     public String getFirst_name() {
         return first_name;

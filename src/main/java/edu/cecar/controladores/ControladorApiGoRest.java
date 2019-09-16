@@ -7,11 +7,19 @@ package edu.cecar.controladores;
 
 
 
+import edu.cecar.modelo.Users;
+import java.awt.Image;
+import java.net.URL;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import us.monoid.json.JSONArray;
 import us.monoid.json.JSONObject;
 import us.monoid.web.Resty;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import static sun.applet.AppletResourceLoader.getImage;
+
 
 
 
@@ -21,42 +29,55 @@ import us.monoid.web.Resty;
  */
 public class ControladorApiGoRest {
     public static void main(String[] args) {
+        
         try {
-            JSONObject jsonUser = new Resty().json("https://gorest.co.in/public-api/users?_format=json&access-token=_ELgKHtDJOqZk7CNQs-psO5uJ5Kr7_84zHLZ").object();
-            JSONObject jsonPosts = new Resty().json("https://gorest.co.in/public-api/posts?_format=json&access-token=PWtZ7dsfHDGzu4bdcwwy2ftZQZ2_sstaPo6w").object();
-            JSONObject jsonComments = new Resty().json("https://gorest.co.in/public-api/comments?_format=json&access-token=PWtZ7dsfHDGzu4bdcwwy2ftZQZ2_sstaPo6w").object();
+            Users user;
+            ArrayList<Users> users = new ArrayList<>();
+            JSONObject jsonUsers = new
+                    Resty().
+                    json("https://gorest.co.in/public-api/users?_format=json&access-token=ejnYGsJy6juNHxIHqDTzRZLMKXt7Rh28KyPB").
+                    object();
+            JSONObject jsonPOST = new
+                    Resty().
+                    json("https://gorest.co.in/public-api/posts?_format=json&access-token=ejnYGsJy6juNHxIHqDTzRZLMKXt7Rh28KyPB").
+                    object();
+            JSONObject jsonComments = new
+                    Resty().
+                    json("https://gorest.co.in/public-api/comments?_format=json&access-token=ejnYGsJy6juNHxIHqDTzRZLMKXt7Rh28KyPB").
+                    object();
+
+            JSONArray jsonArrayResultUsers = jsonUsers.getJSONArray("result");
+            JSONArray jsonArrayResultPOST = jsonPOST.getJSONArray("result");
+            JSONArray jsonArrayResultComments = jsonComments.getJSONArray("result");
             
-            JSONObject jsonMeta = jsonUser.getJSONObject("_meta");
-            //System.out.println(jsonMeta.get("success"));
             
-            JSONArray jSONArrayResult = jsonUser.getJSONArray("result");
-            //JSONArray jSONArrayResult2 = jsonPosts.getJSONArray("result");
-            //JSONArray jSONArrayResult3 = jsonComments.getJSONArray("result");
+            
+            for (int i = 0; i < jsonArrayResultUsers.length() && i<jsonArrayResultPOST.length() && i<jsonArrayResultComments.length(); i++) {
+                Image img = getImage(
+                     new URL(jsonArrayResultUsers.getJSONObject(i).getJSONObject("_links").getJSONObject("avatar").get("href").toString())
+                );
+                ImageIcon imagen = new ImageIcon(img);
                     
-            
-            for (int i = 0; i < jSONArrayResult.length(); i++) {
-                
-                System.err.println(jSONArrayResult.getJSONObject(i).get("first_name"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("last_name"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("gender"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("dob"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("email"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("phone"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("website"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("address"));
-                System.err.println(jSONArrayResult.getJSONObject(i).get("status"));
-                System.out.println("\n");
+                user = new Users(jsonArrayResultUsers.getJSONObject(i).get("first_name").toString(),
+                                 jsonArrayResultUsers.getJSONObject(i).get("last_name").toString(),
+                                 jsonArrayResultUsers.getJSONObject(i).get("gender").toString(), 
+                                 jsonArrayResultUsers.getJSONObject(i).get("dob").toString(), 
+                                 jsonArrayResultUsers.getJSONObject(i).get("email").toString(), 
+                                 jsonArrayResultUsers.getJSONObject(i).get("phone").toString(), 
+                                 jsonArrayResultUsers.getJSONObject(i).get("website").toString(),
+                                 jsonArrayResultUsers.getJSONObject(i).get("address").toString(), 
+                                 jsonArrayResultUsers.getJSONObject(i).get("status").toString(),
+                                 jsonArrayResultPOST.getJSONObject(i).get("user_id").toString(),
+                                 jsonArrayResultComments.getJSONObject(i).get("post_id").toString(), 
+                                 imagen);
+                users.add(user);
             }
-//            for (int i = 0; i < jSONArrayResult2.length(); i++) {
-//                
-//                System.err.println(jSONArrayResult2.getJSONObject(i).get("post_id"));
-//                System.err.println(jSONArrayResult2.getJSONObject(i).get("name"));
-//                System.err.println(jSONArrayResult2.getJSONObject(i).get("email"));
-//                System.err.println(jSONArrayResult2.getJSONObject(i).get("bodybody"));
-//                
-//                System.out.println("\n");
-//            }
             
+            users.stream().forEach(u -> System.out.println("First_Name: " + u.getFirst_name()
+                                                         + " Last_Name: " + u.getLast_name()
+                                                         + " Post: "+ u.getPost()
+                                                         + " Comments: " + u.getComments()));
+//          
         } catch (Exception ex) {
             Logger.getLogger(ControladorApiGoRest.class.getName()).log(Level.SEVERE, null, ex);
         }
