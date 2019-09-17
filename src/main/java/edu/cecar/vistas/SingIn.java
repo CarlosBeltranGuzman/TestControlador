@@ -6,7 +6,9 @@
 package edu.cecar.vistas;
 
 import edu.cecar.controladores.ControladorApiGoRest;
-import java.io.File;
+import edu.cecar.modelo.Users;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -14,9 +16,10 @@ import java.io.File;
  */
 public class SingIn extends javax.swing.JFrame {
 
-    public SingIn() {
+    public SingIn(){
         initComponents();
-        ControladorApiGoRest controladorApiGoRest = new ControladorApiGoRest();
+        
+        
     }
 
     /**

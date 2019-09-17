@@ -2,6 +2,7 @@ package edu.cecar.controladores;
 
 import edu.cecar.modelo.Users;
 import java.awt.Image;
+import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,6 +12,7 @@ import us.monoid.web.Resty;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import static sun.applet.AppletResourceLoader.getImage;
+import us.monoid.json.JSONException;
 
 /**
  *
@@ -18,8 +20,8 @@ import static sun.applet.AppletResourceLoader.getImage;
  */
 public class ControladorApiGoRest {
 
-    public ControladorApiGoRest() {
-        try {
+    public ArrayList<Users> ControladorApiGoRest() throws IOException, JSONException {
+        
             System.out.println("Cargando a la Coleccion");
             Users user;
             ArrayList<Users> users = new ArrayList<>();
@@ -51,9 +53,6 @@ public class ControladorApiGoRest {
                 users.add(user);
             }
             System.out.println("Archivos cargados");
-
-        } catch (Exception ex) {
-            Logger.getLogger(ControladorApiGoRest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        return users;  
     }
 }
