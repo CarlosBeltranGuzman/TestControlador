@@ -3,10 +3,22 @@ package edu.cecar.modelo;
 import javax.swing.ImageIcon;
 
 public class Users {
-    private String first_name, last_name, gender, dob, email, phone, website, address, status, post, comments;
+    private int id;
+    private String first_name, 
+                   last_name, 
+                   gender, 
+                   dob, 
+                   email, 
+                   phone, 
+                   website, 
+                   address, 
+                   status, 
+                   post, 
+                   comments;
     private ImageIcon photo;
 
-    public Users(String first_name, String last_name, String gender, String dob, String email, String phone, String website, String address, String status, String post, String comments, ImageIcon photo) {
+    public Users(int id, String first_name, String last_name, String gender, String dob, String email, String phone, String website, String address, String status, String post, String comments, ImageIcon photo) {
+        this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
@@ -20,6 +32,16 @@ public class Users {
         this.comments = comments;
         this.photo = photo;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
 
     public ImageIcon getPhoto() {
         return photo;
