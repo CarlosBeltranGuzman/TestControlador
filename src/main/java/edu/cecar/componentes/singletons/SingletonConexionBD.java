@@ -6,6 +6,7 @@
 package edu.cecar.componentes.singletons;
 
 import edu.cecar.componentes.baseDatos.ConectarMySQL;
+import edu.cecar.controladores.ControladorApiGoRest;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class SingletonConexionBD {
     private static Connection connection;
-    
+    private static ControladorApiGoRest rest;
     public static Connection getInstance() {
         if (connection == null){
             try {
@@ -37,5 +38,12 @@ public class SingletonConexionBD {
             }
         }
         return connection;
+    }
+    
+    public static ControladorApiGoRest cv(){
+        if(rest==null){
+            rest=new ControladorApiGoRest();
+        }
+        return rest;
     }
 }
