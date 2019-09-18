@@ -1,0 +1,7 @@
+#Archivo de configuracion de conexion
+# a la base de datos del Proyecto ManPower
+host = 127.0.0.1
+port = 3308
+usuario = root
+password = ""
+baseDatos = manpower
