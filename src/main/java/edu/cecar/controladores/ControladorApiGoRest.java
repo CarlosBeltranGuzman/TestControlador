@@ -17,6 +17,7 @@ import us.monoid.json.JSONObject;
 import us.monoid.web.Resty;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static sun.applet.AppletResourceLoader.getImage;
 import us.monoid.json.JSONException;
 
@@ -102,6 +103,7 @@ public class ControladorApiGoRest {
                                 });
                 }else{
                     System.out.println("No existe tal registro");
+                    JOptionPane.showMessageDialog(null, "No existe el registro");
                 }
         } catch (SQLException ex) {
             Logger.getLogger(ControladorApiGoRest.class.getName()).log(Level.SEVERE, null, ex);

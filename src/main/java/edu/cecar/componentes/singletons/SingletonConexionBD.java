@@ -8,8 +8,6 @@ package edu.cecar.componentes.singletons;
 import edu.cecar.componentes.baseDatos.ConectarMySQL;
 import edu.cecar.controladores.ControladorApiGoRest;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.util.Properties;
 import java.util.logging.Level;
