@@ -1,0 +1,55 @@
+IMPORTANTE!!!!!
+Nombre de la base de datos : testdesarrollador
+
+
+
+CREATE TABLE `users` (
+  
+	`correo` varchar(50) NOT NULL,
+  
+	`contraseña` varchar(50) NOT NULL
+ 
+ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+insert into users (correo , contraseña) values ('daniela','159753');
+
+insert into users (correo , contraseña) values ('Triny','abduzcan');
+
+insert into users (correo , contraseña) values ('Andres','vasoconagua');
+
+insert into users (correo , contraseña) values ('admin','cecar123');
+insert into users (correo , contraseña) values ('carlos','cecar963');
+
+CREATE TABLE `registros` (
+  
+	`id` varchar(11) NOT NULL,
+  
+	`first_name` varchar(45) NOT NULL,
+  
+	`last_namel` varchar(45) NOT NULL,
+  
+	`gender` varchar(45) NOT NULL,
+  
+	`dob` varchar(45) NOT NULL,
+  
+	`email` varchar(45) NOT NULL,
+  
+	`phone` varchar(45) NOT NULL,
+  
+	`website` varchar(1000) NOT NULL,
+  
+	`address` varchar(1000) NOT NULL,
+  
+	`status` varchar(1000) NOT NULL,
+  
+	`post` varchar(1500) NOT NULL,
+  
+	`comments` varchar(1500) NOT NULL,
+  
+PRIMARY KEY (`id`)
+
+ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+truncate table registros;
+
+
