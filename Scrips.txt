@@ -4,21 +4,15 @@ Nombre de la base de datos : testdesarrollador
 
 
 CREATE TABLE `users` (
-  
 	`correo` varchar(50) NOT NULL,
-  
-	`contraseña` varchar(50) NOT NULL
- 
+	`contraseÃ±a` varchar(50) NOT NULL)
 ENGINE=InnoDB DEFAULT CHARSET=latin1
 
-insert into users (correo , contraseña) values ('daniela','159753');
-
-insert into users (correo , contraseña) values ('Triny','abduzcan');
-
-insert into users (correo , contraseña) values ('Andres','vasoconagua');
-
-insert into users (correo , contraseña) values ('admin','cecar123');
-insert into users (correo , contraseña) values ('carlos','cecar963');
+insert into users (correo , contraseÃ±a) values ('daniela','159753');
+insert into users (correo , contraseÃ±a) values ('Triny','abduzcan');
+insert into users (correo , contraseÃ±a) values ('Andres','vasoconagua');
+insert into users (correo , contraseÃ±a) values ('admin','cecar123');
+insert into users (correo , contraseÃ±a) values ('carlos','cecar963');
 
 CREATE TABLE `registros` (
   
@@ -46,7 +40,7 @@ CREATE TABLE `registros` (
   
 	`comments` varchar(1500) NOT NULL,
   
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`))
 
 ENGINE=InnoDB DEFAULT CHARSET=latin1
 
